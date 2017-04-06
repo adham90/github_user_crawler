@@ -4,6 +4,7 @@ require 'log4r'
 require 'em-http'
 require 'yajl'
 require 'eventmachine'
+require 'byebug'
 
 include EM
 
@@ -13,9 +14,9 @@ include EM
 }))
 
 EM.run do
-  last_id = 0
+  byebug
+  last_id = 0 #TODO: input from main crawler
   client = Mongo::Client.new([ '127.0.0.1:27017' ], :database => 'test')
-  db = client.database
   collection = client[:github]
 
   stop = Proc.new do
@@ -35,7 +36,7 @@ EM.run do
       :connect_timeout => 5
     }).get({
       :head => {
-        'Authorization' => "token #{ENV['GITHUB_TOKEN']}"
+        'Authorization' => "token b892619f81c44683aa5017fe087469036e32997e"##{ENV['GITHUB_TOKEN']}"
       }
     })
 
@@ -45,7 +46,8 @@ EM.run do
         docs = data.collect(&@usernames).compact
 
         result = collection.insert_many(docs)
-        last_id = lastest.last['id']
+        last_id = data.last['id']
+        byebug
       rescue Exception => e
         @log.error "Processing exception: #{e}, #{e.backtrace.first(5)}"
         @log.error "Response: #{req.response_header}, #{req.response}"

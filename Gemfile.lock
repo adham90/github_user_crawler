@@ -5,6 +5,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     bson (4.2.1)
     bson_ext (1.5.1)
+    byebug (9.0.6)
     cookiejar (0.3.3)
     em-http-request (1.1.5)
       addressable (>= 2.3.4)
@@ -28,14 +29,12 @@ PLATFORMS
 DEPENDENCIES
   bson
   bson_ext
+  byebug
   em-http-request
   eventmachine
   log4r
   mongo
   yajl-ruby
-
-RUBY VERSION
-   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6

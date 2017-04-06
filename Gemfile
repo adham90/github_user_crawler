@@ -1,8 +1,7 @@
 source 'http://rubygems.org'
 
-ruby '2.4.1'
-
 gem "eventmachine"
+gem 'byebug'
 gem 'em-http-request'
 gem 'log4r'
 gem 'yajl-ruby', require: 'yajl'
