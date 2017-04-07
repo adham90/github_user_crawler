@@ -17,7 +17,6 @@ GEM
       eventmachine (>= 1.0.0.beta.4)
     eventmachine (1.2.3)
     http_parser.rb (0.6.0)
-    log4r (1.1.10)
     mongo (2.4.1)
       bson (>= 4.2.1, < 5.0.0)
     public_suffix (2.0.5)
@@ -32,7 +31,6 @@ DEPENDENCIES
   byebug
   em-http-request
   eventmachine
-  log4r
   mongo
   yajl-ruby
 
